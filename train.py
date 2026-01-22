@@ -16,9 +16,8 @@ gamma = 0.9
 episodes = 30
 episode_rewards = []
 
-state = torch.tensor(env.reset(), dtype=torch.float32)
-
 for episode in range(episodes):
+    state = torch.tensor(env.reset(), dtype=torch.float32)  # Reset state here
     total_reward = 0
 
     for step in range(200):
@@ -57,8 +56,7 @@ plt.ylabel("Total Reward")
 plt.title("Reward vs Episodes (DRL Traffic Signal)")
 plt.grid()
 plt.show()
-import torch
 
 # Save the model after training
-torch.save(agent.model.state_dict(), "dqn_traffic_model.pth")
+torch.save(model.state_dict(), "dqn_traffic_model.pth")
 print("Model saved successfully!")
