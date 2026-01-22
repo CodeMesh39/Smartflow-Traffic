@@ -9,7 +9,7 @@ class SumoTrafficEnv:
 
     def start(self):
         traci.start([
-            "sumo-gui",
+            "sumo",
             "-c", self.sumo_cfg,
             "--start"
         ])
@@ -26,7 +26,6 @@ class SumoTrafficEnv:
         return np.array(queues, dtype=np.float32)
 
     def step(self, action):
-        # Action: switch signal phase
         if action == 1:
             phase = traci.trafficlight.getPhase("c")
             traci.trafficlight.setPhase("c", (phase + 1) % 4)
@@ -35,7 +34,6 @@ class SumoTrafficEnv:
 
         next_state = self.get_state()
 
-        # Improved reward (queue + waiting time)
         lanes = traci.trafficlight.getControlledLanes("c")[:4]
         waiting_time = sum(
             traci.lane.getWaitingTime(lane) for lane in lanes
