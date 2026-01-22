@@ -1,6 +1,7 @@
 # Adaptive Smart Traffic Signal Optimization Using Deep Reinforcement Learning
 
 This project implements an AI-based adaptive traffic signal control system using Deep Reinforcement Learning (DQN) and SUMO simulation.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CodeMesh39/Smartflow-Traffic/blob/main/run_colab.ipynb)
 
 ## Features
 - Real-time traffic simulation using SUMO
