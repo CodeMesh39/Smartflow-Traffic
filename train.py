@@ -57,3 +57,8 @@ plt.ylabel("Total Reward")
 plt.title("Reward vs Episodes (DRL Traffic Signal)")
 plt.grid()
 plt.show()
+import torch
+
+# Save the model after training
+torch.save(agent.model.state_dict(), "dqn_traffic_model.pth")
+print("Model saved successfully!")
